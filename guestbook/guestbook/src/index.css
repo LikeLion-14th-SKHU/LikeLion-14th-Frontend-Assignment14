@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 24px;
+  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+  overflow-wrap: anywhere;
+}
+main { max-width: 640px; margin: 0 auto; }
+header h1 { margin: 0; font-size: 28px; }
+.sub { margin: 4px 0 20px; color: #777; }
+
+button { padding: 6px 12px; border: 1px solid #999; border-radius: 6px; color: #111; background: #fff; cursor: pointer; }
+button + button { margin-left: 8px; }
+button:disabled { cursor: wait; opacity: 0.5; }
+.get { background: skyblue; border-color: skyblue; }
+.post { background: #49cc90; border-color: #49cc90; }
+.patch { background: #50e3c2; border-color: #50e3c2; }
+.delete { background: #f93e3e; border-color: #f93e3e; color: #fff; }
+
+.toolbar { display: flex; align-items: center; }
+
+form { margin-top: 20px; }
+fieldset { margin: 0; padding: 16px; min-width: 0; background: #fff; border: 1px solid #ddd; border-radius: 8px; }
+label { display: block; margin: 12px 0 4px; font-size: 14px; }
+input, textarea { display: block; box-sizing: border-box; width: 100%; padding: 8px; font: inherit; border: 1px solid #ccc; border-radius: 6px; }
+textarea { resize: vertical; }
+fieldset button { margin-top: 12px; }
+
+ul { list-style: none; padding: 0; margin-top: 20px; }
+.card { background: #fff; border: 1px solid #eadfca; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.card-head strong { font-size: 17px; }
+.author { margin-left: 8px; color: #888; font-size: 14px; }
+.card p { white-space: pre-wrap; margin: 8px 0 12px; }
+.card-actions button { padding: 4px 10px; font-size: 13px; }
+.empty { color: #999; text-align: center; margin-top: 40px; }
