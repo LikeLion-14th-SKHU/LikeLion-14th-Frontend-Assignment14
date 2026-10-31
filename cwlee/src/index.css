@@ -1,0 +1,446 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #51463c;
+  background: #faf7f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 전체 레이아웃 */
+
+.site {
+  min-height: 100vh;
+}
+
+.masthead {
+  max-width: 1120px;
+  margin: auto;
+  padding: 27px 26px;
+  border-bottom: 1px solid #e6dfd3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  border: 0;
+  background: none;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 27px;
+  color: #655348;
+}
+
+/* 편지함 */
+
+.mailbox {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 75px 22px 95px;
+  text-align: center;
+}
+
+.mailbox h1 {
+  font-size: 39px;
+  margin: 18px 0;
+}
+
+.subtitle {
+  color: #988a7d;
+  font-size: 14px;
+}
+
+.envelope-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 55px 38px;
+  margin-top: 76px;
+}
+
+/* 편지봉투 */
+
+.envelope-card {
+  border: 0;
+  background: transparent;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: #665447;
+}
+
+.envelope-body {
+  width: 100%;
+  max-width: 290px;
+  aspect-ratio: 1.55;
+  position: relative;
+  background: #e8d7bd;
+  border-radius: 5px;
+  filter: drop-shadow(0 8px 8px #796b5720);
+  transition: transform 0.25s;
+  overflow: hidden;
+}
+
+.envelope-card:hover .envelope-body {
+  transform: translateY(-8px);
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: #f0e4d3;
+  clip-path: polygon(0 0, 100% 0, 50% 56%);
+}
+
+.envelope-fold-left {
+  position: absolute;
+  inset: 0;
+  background: #decbb1;
+  clip-path: polygon(0 0, 50% 55%, 0 100%);
+}
+
+.envelope-fold-right {
+  position: absolute;
+  inset: 0;
+  background: #e2cfb7;
+  clip-path: polygon(100% 0, 50% 55%, 100% 100%);
+}
+
+.envelope-fold-bottom {
+  position: absolute;
+  inset: 0;
+  background: #e9d8bf;
+  clip-path: polygon(0 100%, 50% 45%, 100% 100%);
+}
+
+.envelope-seal {
+  position: absolute;
+  z-index: 2;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #a8796c;
+  color: #f5e8dc;
+  font-size: 18px;
+}
+
+.envelope-title {
+  max-width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 새 편지봉투 */
+
+.envelope-new .envelope-body {
+  background: #e4cfb4;
+  overflow: visible;
+}
+
+.envelope-new .envelope-flap {
+  transform: translateY(-42%);
+  background: #e8d6bd;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.envelope-new .envelope-fold-left,
+.envelope-new .envelope-fold-right {
+  display: none;
+}
+
+.envelope-new .envelope-fold-bottom {
+  clip-path: polygon(0 100%, 50% 58%, 100% 100%);
+}
+
+.envelope-plus {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 55%;
+  background: #fffdf7;
+  display: grid;
+  place-items: center;
+  color: #c49d83;
+  font-size: 35px;
+  border-radius: 3px;
+}
+
+.empty {
+  margin-top: 35px;
+  color: #978a7a;
+}
+
+/* 편지 상세 / 작성 */
+
+.reading {
+  max-width: 800px;
+  margin: 40px auto 90px;
+  padding: 0 20px;
+}
+
+.back {
+  border: 0;
+  background: none;
+  color: #8c7968;
+  margin-bottom: 26px;
+}
+
+.paper {
+  background: #fffdf7;
+  min-height: 630px;
+  padding: 46px 65px 55px;
+  box-shadow: 0 10px 40px #6e59451b;
+  border: 1px solid #eee7dc;
+  position: relative;
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 19px;
+  border-left: 1px solid #f0e7dc;
+}
+
+.paper-top {
+  color: #ad947e;
+  font-size: 13px;
+  border-bottom: 1px solid #e8dfd3;
+  padding-bottom: 20px;
+  margin-bottom: 38px;
+}
+
+.paper h2 {
+  font-size: 28px;
+  margin: 18px 0 30px;
+  overflow-wrap: anywhere;
+}
+
+.letter-body {
+  white-space: pre-wrap;
+  line-height: 2.2;
+  font-size: 16px;
+  min-height: 240px;
+  overflow-wrap: anywhere;
+}
+
+/* 편지 작성 */
+
+.letter-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-input,
+.body-input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  outline: none;
+  color: #51463c;
+}
+
+.title-input {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 19px 0 25px;
+}
+
+.body-input {
+  font-size: 16px;
+  line-height: 2.2;
+  resize: vertical;
+  min-height: 250px;
+}
+
+.author-field {
+  border-top: 1px solid #ece4d8;
+  padding-top: 20px;
+}
+
+.author-field label {
+  display: block;
+  font-size: 13px;
+  color: #76695b;
+}
+
+.author-field small {
+  display: block;
+  color: #a7998a;
+  margin-top: 7px;
+}
+
+.author-field input,
+.author-modal input {
+  border: 1px solid #e3d7c9;
+  background: #fffefa;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  margin-top: 13px;
+  outline-color: #b18d75;
+}
+
+/* 버튼 */
+
+.actions,
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.secondary,
+.primary,
+.btn-secondary,
+.btn-primary {
+  border-radius: 4px;
+  padding: 11px 20px;
+  font-size: 13px;
+}
+
+.secondary,
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #d7c8b7;
+  color: #776555;
+}
+
+.primary,
+.btn-primary {
+  background: #987461;
+  color: white;
+  border: 1px solid #987461;
+}
+
+.danger {
+  color: #b26d65;
+}
+
+/* 작성자 확인 모달 */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: #32282080;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+.author-modal {
+  position: relative;
+  width: min(100%, 420px);
+  padding: 36px;
+  background: #fffdf7;
+  box-shadow: 0 15px 50px #0002;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  border: 0;
+  background: transparent;
+  color: #8b7c6d;
+  font-size: 25px;
+}
+
+.modal-icon {
+  font-size: 34px;
+  color: #b18d75;
+}
+
+.author-modal h2 {
+  font-size: 24px;
+  margin: 13px 0;
+}
+
+.author-modal p {
+  color: #8b7c6d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.form-error {
+  color: #b26d65 !important;
+}
+
+/* 반응형 */
+
+@media (max-width: 720px) {
+  .envelope-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 17px;
+  }
+
+  .mailbox {
+    padding-top: 55px;
+  }
+
+  .mailbox h1 {
+    font-size: 30px;
+  }
+
+  .paper {
+    padding: 32px 29px;
+  }
+
+  .masthead {
+    padding: 20px;
+  }
+
+  .brand {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 390px) {
+  .envelope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .envelope-card {
+    max-width: 300px;
+    width: 100%;
+    margin: auto;
+  }
+}
