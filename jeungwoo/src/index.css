@@ -1,0 +1,60 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+    overflow-wrap: anywhere;
+  }
+  main {
+    max-width: 760px; margin: 0 auto; text-align: center;
+    padding: 24px;
+    border: 2px solid #61affe;
+    border-radius: 16px;
+    background: #f7fbff;
+    box-shadow: 0 4px 16px rgba(97, 175, 254, 0.2);
+  }
+  ul { padding: 0; }
+  li { list-style: none; }
+  fieldset, li {
+    border: 2px solid #61affe;
+    border-radius: 12px;
+    padding: 16px;
+    background: #eef6ff;
+    box-shadow: 0 2px 8px rgba(97, 175, 254, 0.25);
+  }
+  button {
+    padding: 4px 10px; border: 1px solid #999; border-radius: 4px; color: #111; cursor: pointer;
+    transition: transform 0.15s, filter 0.15s, box-shadow 0.15s;
+  }
+  button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(0.92);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  .get { background: #61affe; border-color: #61affe; }
+  .post { background: #49cc90; border-color: #49cc90; }
+  .patch { background: #50e3c2; border-color: #50e3c2; }
+  .delete { background: #f93e3e; border-color: #f93e3e; }
+  button + button { margin-left: 8px; }
+  li button { margin-left: 8px; }
+  button:disabled { cursor: wait; opacity: 0.5; }
+  form { margin-top: 20px; }
+  fieldset { margin: 0; padding: 16px; min-width: 0; }
+  label { display: block; margin: 12px 0 4px; }
+  input, textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 4px;
+    padding: 8px;
+    font: inherit;
+  }
+  textarea { resize: vertical; }
+  fieldset button { margin-top: 12px; }
+  li { margin: 16px 0; }
+  li p { white-space: pre-wrap; }
+}
