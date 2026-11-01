@@ -20,6 +20,7 @@ export default function App() {
     board.setShowForm(false);
     setSelectedId(null);
     setVerifyAction(null);
+    board.loadPosts();
   };
 
   const beginNew = () => {
